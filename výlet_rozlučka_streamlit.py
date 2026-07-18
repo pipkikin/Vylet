@@ -50,24 +50,22 @@ if 'kolo' not in st.session_state:
     st.session_state.otazky_pool = otazky.copy()
     st.session_state.ukoly_pool = ukoly.copy()
     st.session_state.text_kola = ""
-    st.session_state.ukaz_dalsi_krok = False
 
-# ÚVOD - Zobrazí se vždy na začátku
+# ÚVOD
 st.write("Ahoj, jmenuju se Róza a ráda chodím na výlety.\nSlyšela jsem, že jste s kámoškama na víkend v horách, tak jsem si pro vás jeden připravila.\nNebudu ti ale říkat, kam jdeme. To je překvápko a musíš na to postupně přijít sama.")
 
 jak_se_mas = st.text_input("Teď ale první otázka. Jak se máš?\n")
 
-# KROK 2: Pravidla se ukážou až po odpovědi na "Jak se máš?"
 if jak_se_mas:
     st.write("Super. Tak můžeme začít!\nNa každém místě na naší trase si budeš moct vybrat, jestli chceš odpovědět na otázku, která prověří, jak dobře Jirku znáš, nebo splnit nějaký úkol.\nPo správné odpovědi nebo úspěšném splnění úkolu ti prozradím další bod naší trasy.\nJestli ale odpovíš špatně, nebo se ti úkol nepovede splnit, mustíš si dát panáka, abych ti prozradila, kam máš jít dál.\nJakýkoliv další otázky směruj na Aničku, jsme domluvené. Ona tě zároveň bude i hlídat, jestli jsi odpověděla správně.")
     
     muzeme_vyrazit = st.text_input("Můžeme vyrazit?\n")
     
-    # KROK 3: Samotná hra se odemkne až po odpovědi na "Můžeme vyrazit?"
     if muzeme_vyrazit:
         # HRACÍ KOLA 1-6
         if 1 <= st.session_state.kolo <= 6:
             kolo = st.session_state.kolo
+            st.write(f"### Kolo {kolo} z 6")
             
             odpoved = st.text_input("Chceš radši otázku, nebo úkol?\n", key=f"vstup_{kolo}")
             
@@ -90,22 +88,21 @@ if jak_se_mas:
                 if st.session_state.text_kola:
                     st.write(st.session_state.text_kola)
                     
-                    if st.button("Můžeme jít dál?\n", key=f"button_dal_{kolo}"):
-                        st.session_state.ukaz_dalsi_krok = True
+                    # Tlačítko se změnilo na textové pole. Až do něj napíše odpověď, odemkne se cíl.
+                    muzeme_dal = st.text_input("Můžeme jít dál?\n", key=f"odpoved_na_ukol_nebo_otazku_{kolo}")
+                    
+                    if muzeme_dal:
+                        dalsi_misto = trasa[kolo - 1]
                         
-                if st.session_state.ukaz_dalsi_krok:
-                    dalsi_misto = trasa[kolo - 1]
-                    
-                    if kolo == 2:
-                        st.write(f" Super, to jsem ráda! Náš další cíl jsou {dalsi_misto}\n")
-                    else:
-                        st.write(f" Super, to jsem ráda! Náš další cíl je {dalsi_misto}\n")
-                    
-                    if st.button("Až tam dojdeš, ozvi se mi :)\n", key=f"button_ozvi_{kolo}"):
-                        st.session_state.kolo += 1
-                        st.session_state.text_kola = ""
-                        st.session_state.ukaz_dalsi_krok = False
-                        st.rerun()
+                        if kolo == 2:
+                            st.write(f" Super, to jsem ráda! Náš další cíl jsou {dalsi_misto}\n")
+                        else:
+                            st.write(f" Super, to jsem ráda! Náš další cíl je {dalsi_misto}\n")
+                        
+                        if st.button("Až tam dojdeš, ozvi se mi :)\n", key=f"button_ozvi_{kolo}"):
+                            st.session_state.kolo += 1
+                            st.session_state.text_kola = ""
+                            st.rerun()
 
         # KONEC HRY
         else:
