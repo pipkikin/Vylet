@@ -87,7 +87,6 @@ if jak_se_mas:
                 if st.session_state.text_kola:
                     st.write(st.session_state.text_kola)
                     
-                    # Tlačítko se změnilo na textové pole. Až do něj napíše odpověď, odemkne se cíl.
                     muzeme_dal = st.text_input("Můžeme jít dál?\n", key=f"odpoved_na_ukol_nebo_otazku_{kolo}")
                     
                     if muzeme_dal:
@@ -98,7 +97,10 @@ if jak_se_mas:
                         else:
                             st.write(f" Super, to jsem ráda! Náš další cíl je {dalsi_misto}\n")
                         
-                        if st.button("Až tam dojdeš, ozvi se mi :)\n", key=f"button_ozvi_{kolo}"):
+                        # Tlačítko nahrazeno textovým polem pro čistou konverzaci
+                        dosla_jsem = st.text_input("Až tam dojdeš, ozvi se mi :)\n", key=f"dosla_jsem_{kolo}")
+                        
+                        if dosla_jsem:
                             st.session_state.kolo += 1
                             st.session_state.text_kola = ""
                             st.rerun()
