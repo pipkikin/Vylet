@@ -55,12 +55,13 @@ if 'kolo' not in st.session_state:
 # ÚVOD
 if st.session_state.kolo == 0:
     st.write("Ahoj, jmenuju se Róza a ráda chodím na výlety.\nSlyšela jsem, že jste s kámoškama na víkend v horách, tak jsem si pro vás jeden připravila.\nNebudu ti ale říkat, kam jdeme. To je překvápko a musíš na to postupně přijít sama.")
-    st.text_input("Teď ale první otázka. Jak se máš?\n")
-    st.write("Super. Tak můžeme začít!\nNa každém místě na naší trase si budeš moct vybrat, jestli chceš odpovědět na otázku, která prověří, jak dobře Jirku znáš, nebo splnit nějaký úkol.\nPo správné odpovědi nebo úspěšném splnění úkolu ti prozradím další bod naší trasy.\nJestli ale odpovíš špatně, nebo se ti úkol nepovede splnit, musíš si dát panáka, abych ti prozradila, kam máš jít dál.\nJakýkoliv další otázky směruj na Aničku, jsme domluvené. Ona tě zároveň bude i hlídat, jestli jsi odpověděla správně.\nMůžeme vyrazit?\n")
-
-    if st.button("Vyrazit!"):
-        st.session_state.kolo = 1
-        st.rerun()
+    jak_se_mas = st.text_input("Teď ale první otázka. Jak se máš?\n")
+    if jak_se_mas:
+        st.write("Super. Tak můžeme začít!\nNa každém místě na naší trase si budeš moct vybrat, jestli chceš odpovědět na otázku, která prověří, jak dobře Jirku znáš, nebo splnit nějaký úkol.\nPo správné odpovědi nebo úspěšném splnění úkolu ti prozradím další bod naší trasy.\nJestli ale odpovíš špatně, nebo se ti úkol nepovede splnit, musíš si dát panáka, abych ti prozradila, kam máš jít dál.\nJakýkoliv další otázky směruj na Aničku, jsme domluvené. Ona tě zároveň bude i hlídat, jestli jsi odpověděla správně.\nMůžeme vyrazit?\n")
+        
+        if st.button("Vyrazit!"):
+            st.session_state.kolo = 1
+            st.rerun()
 
 # HRACÍ KOLA 1-6
 elif 1 <= st.session_state.kolo <= 6:
