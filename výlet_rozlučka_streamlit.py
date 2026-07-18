@@ -46,66 +46,68 @@ otazky = [
 
 # Technické nastavení webové stránky
 if 'kolo' not in st.session_state:
-    st.session_state.kolo = 0
+    st.session_state.kolo = 1
     st.session_state.otazky_pool = otazky.copy()
     st.session_state.ukoly_pool = ukoly.copy()
     st.session_state.text_kola = ""
     st.session_state.ukaz_dalsi_krok = False
 
-# ÚVOD
-if st.session_state.kolo == 0:
-    st.write("Ahoj, jmenuju se Róza a ráda chodím na výlety.\nSlyšela jsem, že jste s kámoškama na víkend v horách, tak jsem si pro vás jeden připravila.\nNebudu ti ale říkat, kam jdeme. To je překvápko a musíš na to postupně přijít sama.")
-    jak_se_mas = st.text_input("Teď ale první otázka. Jak se máš?\n")
-    if jak_se_mas:
-        st.write("Super. Tak můžeme začít!\nNa každém místě na naší trase si budeš moct vybrat, jestli chceš odpovědět na otázku, která prověří, jak dobře Jirku znáš, nebo splnit nějaký úkol.\nPo správné odpovědi nebo úspěšném splnění úkolu ti prozradím další bod naší trasy.\nJestli ale odpovíš špatně, nebo se ti úkol nepovede splnit, musíš si dát panáka, abych ti prozradila, kam máš jít dál.\nJakýkoliv další otázky směruj na Aničku, jsme domluvené. Ona tě zároveň bude i hlídat, jestli jsi odpověděla správně.\nMůžeme vyrazit?\n")
-        
-        if st.button("Vyrazit!"):
-            st.session_state.kolo = 1
-            st.rerun()
+# ÚVOD - Zobrazí se vždy na začátku
+st.write("Ahoj, jmenuju se Róza a ráda chodím na výlety.\nSlyšela jsem, že jste s kámoškama na víkend v horách, tak jsem si pro vás jeden připravila.\nNebudu ti ale říkat, kam jdeme. To je překvápko a musíš na to postupně přijít sama.")
 
-# HRACÍ KOLA 1-6
-elif 1 <= st.session_state.kolo <= 6:
-    kolo = st.session_state.kolo
+jak_se_mas = st.text_input("Teď ale první otázka. Jak se máš?\n")
 
-    odpoved = st.text_input("Chceš radši otázku, nebo úkol?\n", key=f"vstup_{kolo}")
+# KROK 2: Pravidla se ukážou až po odpovědi na "Jak se máš?"
+if jak_se_mas:
+    st.write("Super. Tak můžeme začít!\nNa každém místě na naší trase si budeš moct vybrat, jestli chceš odpovědět na otázku, která prověří, jak dobře Jirku znáš, nebo splnit nějaký úkol.\nPo správné odpovědi nebo úspěšném splnění úkolu ti prozradím další bod naší trasy.\nJestli ale odpovíš špatně, nebo se ti úkol nepovede splnit, mustíš si dát panáka, abych ti prozradila, kam máš jít dál.\nJakýkoliv další otázky směruj na Aničku, jsme domluvené. Ona tě zároveň bude i hlídat, jestli jsi odpověděla správně.")
+    
+    muzeme_vyrazit = st.text_input("Můžeme vyrazit?\n")
+    
+    # KROK 3: Samotná hra se odemkne až po odpovědi na "Můžeme vyrazit?"
+    if muzeme_vyrazit:
+        # HRACÍ KOLA 1-6
+        if 1 <= st.session_state.kolo <= 6:
+            kolo = st.session_state.kolo
+            st.write(f"### Kolo {kolo} z 6")
+            
+            odpoved = st.text_input("Chceš radši otázku, nebo úkol?\n", key=f"vstup_{kolo}")
+            
+            if odpoved:
+                if odpoved.lower() in ["úkol", "ukol"] and not st.session_state.text_kola:
+                    if kolo == 2:
+                        st.session_state.text_kola = ukol2
+                    elif kolo == 6:
+                        st.session_state.text_kola = ukol6
+                    else:
+                        vybrany_ukol = random.choice(st.session_state.ukoly_pool)
+                        st.session_state.ukoly_pool.remove(vybrany_ukol)
+                        st.session_state.text_kola = f" {vybrany_ukol}"
+                        
+                elif odpoved.lower() in ["otázku", "otazku", "otázka", "otazka"] and not st.session_state.text_kola:
+                    vybrana_otazka = random.choice(st.session_state.otazky_pool)
+                    st.session_state.otazky_pool.remove(vybrana_otazka)
+                    st.session_state.text_kola = f" {vybrana_otazka}"
+                    
+                if st.session_state.text_kola:
+                    st.write(st.session_state.text_kola)
+                    
+                    if st.button("Můžeme jít dál?\n", key=f"button_dal_{kolo}"):
+                        st.session_state.ukaz_dalsi_krok = True
+                        
+                if st.session_state.ukaz_dalsi_krok:
+                    dalsi_misto = trasa[kolo - 1]
+                    
+                    if kolo == 2:
+                        st.write(f" Super, to jsem ráda! Náš další cíl jsou {dalsi_misto}\n")
+                    else:
+                        st.write(f" Super, to jsem ráda! Náš další cíl je {dalsi_misto}\n")
+                    
+                    if st.button("Až tam dojdeš, ozvi se mi :)\n", key=f"button_ozvi_{kolo}"):
+                        st.session_state.kolo += 1
+                        st.session_state.text_kola = ""
+                        st.session_state.ukaz_dalsi_krok = False
+                        st.rerun()
 
-    if odpoved:
-        if odpoved.lower() in ["úkol", "ukol"] and not st.session_state.text_kola:
-            if kolo == 2:
-                st.session_state.text_kola = ukol2
-            elif kolo == 6:
-                st.session_state.text_kola = ukol6
-            else:
-                vybrany_ukol = random.choice(st.session_state.ukoly_pool)
-                st.session_state.ukoly_pool.remove(vybrany_ukol)
-                st.session_state.text_kola = f" {vybrany_ukol}"
-
-        elif odpoved.lower() in ["otázku", "otazku", "otázka", "otazka"] and not st.session_state.text_kola:
-            vybrana_otazka = random.choice(st.session_state.otazky_pool)
-            st.session_state.otazky_pool.remove(vybrana_otazka)
-            st.session_state.text_kola = f" {vybrana_otazka}"
-
-        if st.session_state.text_kola:
-            st.write(st.session_state.text_kola)
-
-            if st.button("Můžeme jít dál?\n", key=f"button_dal_{kolo}"):
-                st.session_state.ukaz_dalsi_krok = True
-
-        if st.session_state.ukaz_dalsi_krok:
-            dalsi_misto = trasa[kolo - 1]
-
-            # Tvoje češtinářská logika pro jednotné a množné číslo (Zbytky budování vs. ostatní)
-            if kolo == 2:
-                st.write(f" Super, to jsem ráda! Náš další cíl jsou {dalsi_misto}\n")
-            else:
-                st.write(f" Super, to jsem ráda! Náš další cíl je {dalsi_misto}\n")
-
-            if st.button("Až tam dojdeš, ozvi se mi :)\n", key=f"button_ozvi_{kolo}"):
-                st.session_state.kolo += 1
-                st.session_state.text_kola = ""
-                st.session_state.ukaz_dalsi_krok = False
-                st.rerun()
-
-# KONEC
-else:
-    st.write("Tak jsme tady! Doufám, že se ti náš výlet líbil tak jako mně. Užijte si ještě zbytek rozlučky a zase tě někdy ráda uvidím :)")
+        # KONEC HRY
+        else:
+            st.write("Tak jsme tady! Doufám, že se ti náš výlet líbil tak jako mně. Užijte si ještě zbytek rozlučky a zase tě někdy ráda uvidím :)")
