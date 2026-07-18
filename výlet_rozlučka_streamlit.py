@@ -65,7 +65,6 @@ if jak_se_mas:
         # HRACÍ KOLA 1-6
         if 1 <= st.session_state.kolo <= 6:
             kolo = st.session_state.kolo
-            st.write(f"### Kolo {kolo} z 6")
             
             odpoved = st.text_input("Chceš radši otázku, nebo úkol?\n", key=f"vstup_{kolo}")
             
