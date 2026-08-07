@@ -79,7 +79,7 @@ if jak_se_mas:
                     if kolo == 2:
                         st.session_state.text_kola = ukol2
                     elif kolo == 6:
-                        st.session_state.text_kola = ukol6
+                        st.session_state.text_kola = ukol8
                     else:
                         vybrany_ukol = random.choice(st.session_state.ukoly_pool)
                         st.session_state.ukoly_pool.remove(vybrany_ukol)
