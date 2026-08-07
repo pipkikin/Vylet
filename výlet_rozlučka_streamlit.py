@@ -78,7 +78,7 @@ if jak_se_mas:
                 if odpoved.lower() in ["úkol", "ukol"] and not st.session_state.text_kola:
                     if kolo == 2:
                         st.session_state.text_kola = ukol2
-                    elif kolo == 6:
+                    elif kolo == 8:
                         st.session_state.text_kola = ukol8
                     else:
                         vybrany_ukol = random.choice(st.session_state.ukoly_pool)
