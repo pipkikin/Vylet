@@ -34,7 +34,7 @@ ukoly = [
 
 ]
 
-uko2 = "Osmička v numerologii symbolizuje moc. Co teprve, když osmičky jsou v datu dvě? Vyřeš osmisměrku tématickou k dnešnímu dni: https://puzzel.org/en/wordseeker/play?p=-OxlQqal9KRt-xTOQjol"
+ukol2 = "Osmička v numerologii symbolizuje moc. Co teprve, když osmičky jsou v datu dvě? Vyřeš osmisměrku tématickou k dnešnímu dni: https://puzzel.org/en/wordseeker/play?p=-OxlQqal9KRt-xTOQjol"
 ukol8 = "Spolu do sebe zapadáte jako dílky skládačky <3 https://puzzel.org/en/slidingpuzzle/play?p=-OxjcWxOmDeLa_zNkdSA"
 
 otazky = [
