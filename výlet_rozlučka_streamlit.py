@@ -14,22 +14,28 @@ import random
 trasa = [
     "Růžodol - park Opičák. Je to kombinace vašich příjmení, když máš trochu fantazie. Není to cute?",
     "Zbytky budování Hitlerovy dálnice - to jsem tak trochu vybrala kvůli dnešnímu datu.",
+    "Karlov pod Ještědem - vlaková zastávka",
     "Srní sedlo. Hihi, to je vtipný, když jsi Rudolfová, to je srna taková tvoje příbuzná.",
+    "Rozsocha",
     "Kaliště - to je místo, kde se prasata čvachtají v bahně. Přišlo mi to ale taky vtipný, protože pěkně zakalíme.",
-    "Černá hora. K tomu nemám žádný vtip, promiň. Jen mi to přišlo na mapách hezký.",
+    "Černá hora",
+    "Výpřež",
     "Ještěď - náš cíl. Až tam dojdeme, tak bych si tam počkala na západ slunce. Mohlo by to být mega pěkný!"
 ]
 
 ukoly = [
-    "Udělej reklamu nějaké věci, kterou tady vidíš, ve španělštině.",
-    "Pantomimou předveď tvůj oblíbený film.",
-    "Vybalancuj pět kamenů na sebe do věže jednou rukou.",
-    "Zavolej Jirkovi a řekni mu něco hezkýho.",
-    "Za 30 sekund vyjmenuj 15 druhů ovoce."
+    "Po svatbě tě čeká další životní změna. Udělej reklamu nějaké věci, kterou tady vidíš, ve španělštině, aby sis natrénovala roli obchoďačky.",
+    "Jako nevěsta musíš být připravena na každou situaci – co kdybys nestíhala k oltáři, nebo ti někdo chtěl sníst tvůj kousek dortu? Obleč se jako nevěsta (i s podpatky) a uběhni vytyčenou trasu."
+    "Abys zvládla ve svatební den tu nejdůležitější věc s jistotou, natrénuj si to teď ve ztížených podmínkách. Poslepu nasaď prsten jedné z tvých kamarádek."
+    "Tvého budoucího manžela bys měla znát z každého úhlu. Poznej, která fotka ukazuje Jirkovu část těla (když uhodneš 4, nemusíš panákovat)."
+    "Když budeš na Jirku někdy naštvaná, musíš si uvědomit, že i on je pořád „just a boy“. Poznej, na které fotce je Jirka jako miminko, a kde je na fotce ze školky a základky."
+    "Svatba je už za dva týdny, a tak je na čase, aby sis připravila svatební slib. Holky ti určitě rády pomůžou s výběrem správných slov, které ve slibu rozhodně nesmí chybět."
+    "Komunikace je základ zdravého vztahu. Zavolej Jirkovi a řekni mu něco hezkýho."
+
 ]
 
-ukol2 = "Vyřeš osmisměrku https://puzzel.org/en/wordseeker/play?p=-OxlQqal9KRt-xTOQjol"
-ukol6 = "Vyřeš posouvačku https://puzzel.org/en/slidingpuzzle/play?p=-OxjcWxOmDeLa_zNkdSA"
+uko2 = "Osmička v numerologii symbolizuje moc. Co teprve, když osmičky jsou v datu dvě? Vyřeš osmisměrku tématickou k dnešnímu dni: https://puzzel.org/en/wordseeker/play?p=-OxlQqal9KRt-xTOQjol"
+ukol8 = "Spolu do sebe zapadáte jako dílky skládačky <3 https://puzzel.org/en/slidingpuzzle/play?p=-OxjcWxOmDeLa_zNkdSA"
 
 otazky = [
     "Jaký film/seriál má tak rád, že by ho dokázal odříkat celý nazpaměť?",
