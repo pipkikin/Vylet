@@ -35,7 +35,7 @@ ukoly = [
 ]
 
 ukol2 = "Osmička v numerologii symbolizuje moc. Co teprve, když osmičky jsou v datu dvě? Vyřeš osmisměrku tématickou k dnešnímu dni: https://puzzel.org/en/wordseeker/play?p=-OxlQqal9KRt-xTOQjol"
-ukol8 = "Spolu do sebe zapadáte jako dílky skládačky <3 https://puzzel.org/en/slidingpuzzle/play?p=-OxjcWxOmDeLa_zNkdSA"
+ukol9 = "Spolu do sebe zapadáte jako dílky skládačky <3 https://puzzel.org/en/slidingpuzzle/play?p=-OxjcWxOmDeLa_zNkdSA"
 
 otazky = [
     "Jaký film/seriál má tak rád, že by ho dokázal odříkat celý nazpaměť?",
@@ -78,8 +78,8 @@ if jak_se_mas:
                 if odpoved.lower() in ["úkol", "ukol"] and not st.session_state.text_kola:
                     if kolo == 2:
                         st.session_state.text_kola = ukol2
-                    elif kolo == 8:
-                        st.session_state.text_kola = ukol8
+                    elif kolo == 9:
+                        st.session_state.text_kola = ukol9
                     else:
                         vybrany_ukol = random.choice(st.session_state.ukoly_pool)
                         st.session_state.ukoly_pool.remove(vybrany_ukol)
