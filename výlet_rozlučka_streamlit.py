@@ -69,7 +69,7 @@ if jak_se_mas:
     
     if muzeme_vyrazit:
         # HRACÍ KOLA 1-6
-        if 1 <= st.session_state.kolo <= 8:
+        if 1 <= st.session_state.kolo <= 9:
             kolo = st.session_state.kolo
             
             odpoved = st.text_input("Chceš radši otázku, nebo úkol?\n", key=f"vstup_{kolo}")
