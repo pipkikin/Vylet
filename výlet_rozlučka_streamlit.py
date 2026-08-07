@@ -25,11 +25,11 @@ trasa = [
 
 ukoly = [
     "Po svatbě tě čeká další životní změna. Udělej reklamu nějaké věci, kterou tady vidíš, ve španělštině, aby sis natrénovala roli obchoďačky.",
-    "Jako nevěsta musíš být připravena na každou situaci – co kdybys nestíhala k oltáři, nebo ti někdo chtěl sníst tvůj kousek dortu? Obleč se jako nevěsta (i s podpatky) a uběhni vytyčenou trasu."
-    "Abys zvládla ve svatební den tu nejdůležitější věc s jistotou, natrénuj si to teď ve ztížených podmínkách. Poslepu nasaď prsten jedné z tvých kamarádek."
-    "Tvého budoucího manžela bys měla znát z každého úhlu. Poznej, která fotka ukazuje Jirkovu část těla (když uhodneš 4, nemusíš panákovat)."
-    "Když budeš na Jirku někdy naštvaná, musíš si uvědomit, že i on je pořád „just a boy“. Poznej, na které fotce je Jirka jako miminko, a kde je na fotce ze školky a základky."
-    "Svatba je už za dva týdny, a tak je na čase, aby sis připravila svatební slib. Holky ti určitě rády pomůžou s výběrem správných slov, které ve slibu rozhodně nesmí chybět."
+    "Jako nevěsta musíš být připravena na každou situaci – co kdybys nestíhala k oltáři, nebo ti někdo chtěl sníst tvůj kousek dortu? Obleč se jako nevěsta (i s podpatky) a uběhni vytyčenou trasu.",
+    "Abys zvládla ve svatební den tu nejdůležitější věc s jistotou, natrénuj si to teď ve ztížených podmínkách. Poslepu nasaď prsten jedné z tvých kamarádek.",
+    "Tvého budoucího manžela bys měla znát z každého úhlu. Poznej, která fotka ukazuje Jirkovu část těla (když uhodneš 4, nemusíš panákovat).",
+    "Když budeš na Jirku někdy naštvaná, musíš si uvědomit, že i on je pořád „just a boy“. Poznej, na které fotce je Jirka jako miminko, a kde je na fotce ze školky a základky.",
+    "Svatba je už za dva týdny, a tak je na čase, aby sis připravila svatební slib. Holky ti určitě rády pomůžou s výběrem správných slov, které ve slibu rozhodně nesmí chybět.",
     "Komunikace je základ zdravého vztahu. Zavolej Jirkovi a řekni mu něco hezkýho."
 
 ]
